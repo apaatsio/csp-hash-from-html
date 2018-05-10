@@ -1,0 +1,31 @@
+{
+  "name": "csp-hash-from-html",
+  "version": "0.1.0",
+  "description": "Generate hashes from inline scripts and styles in HTML file to be used in Content-Security-Policy header.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/apaatsio/csp-hash-from-html.git"
+  },
+  "main": "lib.js",
+  "bin": {
+    "csp-hash": "./cli.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "csp",
+    "security"
+  ],
+  "author": "Antti Ahti <antti.ahti@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.2",
+    "commander": "^2.15.1",
+    "crypto-js": "^3.1.9-1",
+    "glob": "^7.1.2"
+  },
+  "devDependencies": {
+    "prettier": "^1.12.1"
+  }
+}
