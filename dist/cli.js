@@ -2,7 +2,7 @@
 
 const program = require("commander");
 const generateHashes = require("./lib");
-const packageJson = require("./package.json");
+const packageJson = require("../package.json");
 
 program
   .version(packageJson.version)

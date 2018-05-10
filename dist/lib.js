@@ -6,8 +6,7 @@ const fs = require("fs");
 function generateHashes(globArg, algorithm) {
   const files = glob.sync(globArg);
   if (files.length === 0) {
-    console.error("No files found with glob pattern " + globArg);
-    process.exit(1);
+    throw new Error("No files found with glob pattern " + globArg);
   }
   const hashes = files
     .map(function(fileName) {
