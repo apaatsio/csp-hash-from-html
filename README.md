@@ -5,7 +5,7 @@ Generate hashes from inline scripts and styles in HTML file to be used in Conten
 ## Installation
 
 
-`npm install git://github.com/apaatsio/csp-hash-from-html.git`
+`npm install github:apaatsio/csp-hash-from-html`
 
 
 ## Usage
