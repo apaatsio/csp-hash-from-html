@@ -1,4 +1,4 @@
-# csp-hash-from-html
+# csp-hash-from-html [![Build Status](https://travis-ci.com/apaatsio/csp-hash-from-html.svg?branch=master)](https://travis-ci.com/apaatsio/csp-hash-from-html)
 
 Generate hashes from inline scripts and styles in HTML file to be used in Content-Security-Policy header.
 
