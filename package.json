@@ -6,12 +6,13 @@
     "type": "git",
     "url": "https://github.com/apaatsio/csp-hash-from-html.git"
   },
-  "main": "lib.js",
+  "main": "dist/lib.js",
   "bin": {
-    "csp-hash": "./cli.js"
+    "csp-hash": "dist/cli.js"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest",
+    "test-coverage": "jest --coverage"
   },
   "keywords": [
     "csp",
@@ -26,6 +27,7 @@
     "glob": "^7.1.2"
   },
   "devDependencies": {
+    "jest": "^22.4.3",
     "prettier": "^1.12.1"
   }
 }
