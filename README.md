@@ -14,7 +14,7 @@ Generate hashes from inline scripts and styles in HTML file to be used in Conten
 
 
 ```
-Usage: csp-hash [options] <fileOrGlob>
+Usage: csp-hash [options] <fileOrGlob ...>
 
   Options:
 
@@ -27,6 +27,7 @@ Usage: csp-hash [options] <fileOrGlob>
   Examples:
 
     $ csp-hash index.html
+    $ csp-hash index.html example.html
     $ csp-hash build/**/*.html
     $ csp-hash -a sha512 index.html
     $ csp-hash -d script-src index.html

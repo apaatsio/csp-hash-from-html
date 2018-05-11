@@ -2,6 +2,7 @@ const child_process = require("child_process");
 
 const binary = "./dist/cli.js";
 const simpleScriptTestFile = "./test/fixtures/simple-script.html";
+const simpleStyleTestFile = "./test/fixtures/simple-style.html";
 const fullTestFile = "./test/fixtures/full.html";
 const globPattern = "./test/fixtures/**/*.html";
 
@@ -30,6 +31,18 @@ describe("cli", function() {
         "'sha256-SWutTkqidY1WWe7tZaTPCReI1Zu8lfs57vBJNk1rRLA=' " +
         "'sha256-bHaqd22J9SgkwYJLD7NyCfje+0FpGLeVLxNdDUEatVU=' " +
         "'sha256-54Ts+VLkYKICZxtMuo7M3U9yna7IZCWQJfdCFIheZp0=';\n"
+    );
+  });
+  it("accepts multiple files", function() {
+    const processData = child_process.spawnSync(binary, [
+      simpleScriptTestFile,
+      simpleStyleTestFile
+    ]);
+    const statusCode = processData.status;
+    expect(statusCode).toBe(0);
+    const output = processData.stdout.toString("utf8");
+    expect(output).toMatch(
+      /^default-src:( 'sha256-[a-zA-Z0-9+/=]{44}'){2};\n$/
     );
   });
   it("accepts glob pattern", function() {

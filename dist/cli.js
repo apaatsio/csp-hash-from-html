@@ -7,7 +7,7 @@ const packageJson = require("../package.json");
 program
   .version(packageJson.version)
   .description(packageJson.description)
-  .usage("[options] <fileOrGlob>")
+  .usage("[options] <fileOrGlob ...>")
   .option(
     "-a, --algorithm <value>",
     "hash algorithm (sha256, sha384, sha512)",
@@ -26,6 +26,7 @@ program
     console.log("  Examples:");
     console.log("");
     console.log("    $ csp-hash index.html");
+    console.log("    $ csp-hash index.html example.html");
     console.log("    $ csp-hash build/**/*.html");
     console.log("    $ csp-hash -a sha512 index.html");
     console.log("    $ csp-hash -d script-src index.html");
@@ -34,7 +35,15 @@ program
   .parse(process.argv);
 
 try {
-  const formattedHashes = formattedHashesFromFiles(program.args[0], {
+  let globPattern;
+  if (program.args.length > 1) {
+    // Let's merge multiple file args into one glob pattern. Some shells also
+    // expand globs in command line arguments.
+    globPattern = "{" + program.args.join(",") + "}";
+  } else {
+    globPattern = program.args[0];
+  }
+  const formattedHashes = formattedHashesFromFiles(globPattern, {
     algorithm: program.algorithm,
     directive: program.directive,
     debug: program.debug === true
