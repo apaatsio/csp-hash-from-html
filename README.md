@@ -28,7 +28,8 @@ Usage: csp-hash [options] <fileOrGlob>
     $ csp-hash index.html
     $ csp-hash build/**/*.html
     $ csp-hash -a sha512 index.html
-    $ csp-hash -d script-src index.html```
+    $ csp-hash -d script-src index.html
+```
 
 Outputs list of formatted hashes of every inline script and style element. The 
 output can then be used in the `default-source` directive in the 
