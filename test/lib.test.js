@@ -60,6 +60,15 @@ describe("lib", function() {
         formattedHashesFromFiles();
       }).toThrow();
     });
+    it("works with debug option", function() {
+      global.console.log = jest.fn();
+      expect(function() {
+        formattedHashesFromFiles(simpleScriptTestFile, {
+          debug: true
+        });
+      }).not.toThrow();
+      expect(console.log).toBeCalled();
+    });
   });
 
   describe("rawHashesFromHtml()", function() {

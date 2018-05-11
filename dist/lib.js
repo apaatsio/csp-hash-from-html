@@ -1,3 +1,4 @@
+const chalk = require("chalk");
 const cheerio = require("cheerio");
 const cryptojs = require("crypto-js");
 const glob = require("glob");
@@ -15,6 +16,7 @@ function verifyFunctionOptions(options) {
   }
   const algorithm = options.algorithm || DEFAULT_ALGORITHM;
   const directive = options.directive || DEFAULT_DIRECTIVE;
+  const debug = options.debug === true;
   if (SUPPORTED_ALGORITHMS.indexOf(algorithm) === -1) {
     throw new Error(
       "Unsupported algorithm option " +
@@ -32,16 +34,39 @@ function verifyFunctionOptions(options) {
     );
   }
 
-  return { algorithm, directive };
+  return { algorithm, directive, debug };
 }
 
 function formattedHashesFromFiles(globArg, options) {
+  if (options && options.debug) {
+    console.log(chalk.bold("Passed arguments:"));
+    console.log(chalk.magenta("globArg:\n"), chalk.yellow(globArg));
+    console.log(
+      chalk.magenta("options:\n"),
+      chalk.yellow(JSON.stringify(options, null, 2))
+    );
+  }
   if (!globArg) {
     throw new Error("File name or glob pattern must be defined.");
   }
-  const { algorithm, directive } = verifyFunctionOptions(options);
+  const { algorithm, directive, debug } = verifyFunctionOptions(options);
+
+  if (debug) {
+    console.log(chalk.bold("Final options:"));
+    console.log(
+      chalk.yellow(JSON.stringify({ algorithm, directive, debug }, null, 2))
+    );
+  }
 
   const filePaths = glob.sync(globArg);
+  if (debug) {
+    console.log(
+      chalk.bold("Discovered files (") +
+        chalk.yellow("" + filePaths.length + " files") +
+        chalk.bold("):")
+    );
+    console.log(chalk.yellow(filePaths.join("\n")));
+  }
   if (filePaths.length === 0) {
     throw new Error("No files found with glob pattern " + globArg);
   }

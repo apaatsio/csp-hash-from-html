@@ -20,6 +20,7 @@ program
     /^(default-src|script-src|style-src)$/i,
     "default-src"
   )
+  .option("--debug", "verbose output for debugging")
   .on("--help", function() {
     console.log("");
     console.log("  Examples:");
@@ -35,7 +36,8 @@ program
 try {
   const formattedHashes = formattedHashesFromFiles(program.args[0], {
     algorithm: program.algorithm,
-    directive: program.directive
+    directive: program.directive,
+    debug: program.debug === true
   });
   console.log(formattedHashes);
 } catch (error) {
