@@ -14,18 +14,20 @@ Generate hashes from inline scripts and styles in HTML file to be used in Conten
 
 
 ```
-Usage: csp-hash [options] <fileOrGlob>
+Usage: csp-hash [options] <fileOrGlob ...>
 
   Options:
 
     -V, --version            output the version number
     -a, --algorithm <value>  hash algorithm (sha256, sha384, sha512) (default: sha256)
     -d, --directive <value>  directive (default-src, script-src, style-src) (default: default-src)
+    --debug                  verbose output for debugging
     -h, --help               output usage information
 
   Examples:
 
     $ csp-hash index.html
+    $ csp-hash index.html example.html
     $ csp-hash build/**/*.html
     $ csp-hash -a sha512 index.html
     $ csp-hash -d script-src index.html
