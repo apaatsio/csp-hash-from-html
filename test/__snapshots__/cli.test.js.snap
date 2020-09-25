@@ -1,18 +1,18 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`cli prints help with -h 1`] = `
-"
-  Usage: cli [options] <fileOrGlob ...>
+"Usage: cli [options] <fileOrGlob ...>
 
-  Generate hashes from inline scripts and styles in HTML file to be used in Content-Security-Policy header.
+Generate hashes from inline scripts and styles in HTML file to be used in Content-Security-Policy header.
 
-  Options:
-
-    -V, --version            output the version number
-    -a, --algorithm <value>  hash algorithm (sha256, sha384, sha512) (default: sha256)
-    -d, --directive <value>  directive (default-src, script-src, style-src) (default: default-src)
-    --debug                  verbose output for debugging
-    -h, --help               output usage information
+Options:
+  -V, --version            output the version number
+  -a, --algorithm <value>  hash algorithm (sha256, sha384, sha512) (default:
+                           \\"sha256\\")
+  -d, --directive <value>  directive (default-src, script-src, style-src)
+                           (default: \\"default-src\\")
+  --debug                  verbose output for debugging
+  -h, --help               display help for command
 
   Examples:
 
@@ -26,23 +26,23 @@ exports[`cli prints help with -h 1`] = `
 `;
 
 exports[`cli prints verbose output with --debug 1`] = `
-"Passed arguments:
-globArg:
- ./test/fixtures/simple-script.html
-options:
- {
-  \\"algorithm\\": \\"sha256\\",
-  \\"directive\\": \\"default-src\\",
-  \\"debug\\": true
-}
-Final options:
-{
-  \\"algorithm\\": \\"sha256\\",
-  \\"directive\\": \\"default-src\\",
-  \\"debug\\": true
-}
-Discovered files (1 files):
-./test/fixtures/simple-script.html
+"[1mPassed arguments:[22m
+[35mglobArg:[39m
+[35m[39m [33m./test/fixtures/simple-script.html[39m
+[35moptions:[39m
+[35m[39m [33m{[39m
+[33m  \\"algorithm\\": \\"sha256\\",[39m
+[33m  \\"directive\\": \\"default-src\\",[39m
+[33m  \\"debug\\": true[39m
+[33m}[39m
+[1mFinal options:[22m
+[33m{[39m
+[33m  \\"algorithm\\": \\"sha256\\",[39m
+[33m  \\"directive\\": \\"default-src\\",[39m
+[33m  \\"debug\\": true[39m
+[33m}[39m
+[1mDiscovered files ([22m[33m1 files[39m[1m):[22m
+[33m./test/fixtures/simple-script.html[39m
 default-src: 'sha256-gaaMFNHZyRta8zB2VHkWLMP4tMxJ+d8v3dTW7nw2r6M=';
 "
 `;

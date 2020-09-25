@@ -21,14 +21,14 @@
   "author": "Antti Ahti <antti.ahti@gmail.com>",
   "license": "ISC",
   "dependencies": {
-    "chalk": "^2.4.1",
-    "cheerio": "^1.0.0-rc.2",
-    "commander": "^2.15.1",
-    "crypto-js": "^3.1.9-1",
-    "glob": "^7.1.2"
+    "chalk": "^4.1.0",
+    "cheerio": "^1.0.0-rc.3",
+    "commander": "^6.1.0",
+    "crypto-js": "^4.0.0",
+    "glob": "^7.1.6"
   },
   "devDependencies": {
-    "jest": "^22.4.3",
-    "prettier": "^1.12.1"
+    "jest": "^26.4.2",
+    "prettier": "^2.1.2"
   }
 }
