@@ -95,6 +95,10 @@ describe("cli", function() {
     const statusCode = processData.status;
     expect(statusCode).toBe(0);
     const output = processData.stdout.toString("utf8");
-    expect(output).toMatchSnapshot();
+    expect(clearAnsiStyles(output)).toMatchSnapshot();
   });
 });
+
+function clearAnsiStyles(str) {
+  return str.replace(/\u001B\[\d+m/g, "");
+}
